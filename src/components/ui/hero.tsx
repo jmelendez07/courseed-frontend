@@ -159,22 +159,24 @@ const Hero = ({
                                     </div>
                                     <div className="relative overflow-hidden rounded-[5.2%] bg-gray-100 dark:bg-zinc-950">
                                         <FadeItem>
-                                            <Link to={courseHook.courses.length > 3 ? `/educacion/${courseHook.courses[3].id}` : ''} className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
-                                                <AspectRatio ratio={0.52 / 1}>
-                                                    <img
-                                                        src="https://shadcnblocks.com/images/block/mockups/phone-1.png"
-                                                        alt=""
-                                                        className="absolute z-20 w-full"
-                                                    />
-                                                    {courseHook.courses.length > 3 && (
-                                                        <LazyImage 
-                                                            src={courseHook.courses[3].image ?? ""}
-                                                            width={1100}
-                                                            height={600}
-                                                            className="absolute z-10 w-full rounded-[16%] h-full object-cover"
+                                            <Link to={courseHook.courses.length > 3 ? `/educacion/${courseHook.courses[3].id}` : ''}>
+                                                <div className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
+                                                    <AspectRatio ratio={0.52 / 1}>
+                                                        <img
+                                                            src="https://shadcnblocks.com/images/block/mockups/phone-1.png"
+                                                            alt=""
+                                                            className="absolute z-20 w-full"
                                                         />
-                                                    )}
-                                                </AspectRatio>
+                                                        {courseHook.courses.length > 3 && (
+                                                            <LazyImage 
+                                                                src={courseHook.courses[3].image ?? ""}
+                                                                width={1100}
+                                                                height={600}
+                                                                className="absolute z-10 w-full rounded-[16%] h-full object-cover"
+                                                            />
+                                                        )}
+                                                    </AspectRatio>
+                                                </div>
                                             </Link>
                                         </FadeItem>
                                     </div>
