@@ -38,25 +38,18 @@ const Logos = ({
 						>
 							<CarouselContent className="ml-0">
 								{institutionHook.institutions.map((institution) => (
-									// <CarouselItem
-									// 	key={institution.id}
-									// 	className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6"
-									// >
-									// 	<div className="mx-10 flex shrink-0 items-center justify-center">
-									// 		<div>
-									// 			{/* <img
-									// 				src={logo.image}
-									// 				alt={logo.description}
-									// 				className={logo.className}
-									// 			/> */}
-									// 		</div>
-									// 	</div>
-									// </CarouselItem>
 									<CarouselItem
 										key={institution.id}
 										className="font-semibold flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-2/5"
 									>
-										{institution.name}
+										<div className="flex items-center justify-center gap-x-2">
+											<img 
+												src={institution.image ?? ''} 
+												alt={institution.name} 
+												className="shrink-0 max-w-20 object-cover"
+											/>
+											<p>{institution.name}</p>
+										</div>
 									</CarouselItem>
 								))}
 							</CarouselContent>
