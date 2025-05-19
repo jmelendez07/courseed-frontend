@@ -1,5 +1,5 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import useCourses from "@/hooks/useCourses";
 import useInstitution from "@/hooks/useInstitution";
@@ -72,6 +72,7 @@ const Hero = ({
                                             key={index}
                                             className={`relative flex h-12 w-12 flex-shrink-0 rounded-full border-2 dark:border-0 object-cover`}
                                         >
+                                            <AvatarImage src={institution.image ?? ''} />
                                             <AvatarFallback>
                                                 {institution.name
                                                     ? institution.name.slice(0, 2).toUpperCase()
@@ -88,11 +89,13 @@ const Hero = ({
                                         &quot;Cursos diseñados para tu éxito&quot;
                                     </p>
                                 </FadeItem>
-                                <FadeItem>
-                                    <p className="text-sm font-medium text-muted2-foreground xl:max-w-[70%]">
-                                        {institutionHook.institutions.map(i => i.name).join(", ")}.
-                                    </p>
-                                </FadeItem>
+                                {institutionHook.institutions.length > 0 && (
+                                    <FadeItem>
+                                        <p className="text-sm font-medium text-muted2-foreground xl:max-w-[70%]">
+                                            {institutionHook.institutions.map(i => i.name).join(", ")}.
+                                        </p>
+                                    </FadeItem>
+                                )}
                             </div>
                         </div>
                     </div>
