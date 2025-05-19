@@ -22,13 +22,14 @@ interface ParamsProps {
 
 interface UseCoursesProps {
     size?: number;
+    page?: number;
     isVisibleParam?: boolean;
     institutionParam?: InstitutionInterface;
     facultyParam?: CategoryInterface;
     searchParam?: string
 }
 
-function useCourses({ size, isVisibleParam = true, institutionParam, facultyParam, searchParam }: UseCoursesProps) {
+function useCourses({ size, page, isVisibleParam = true, institutionParam, facultyParam, searchParam }: UseCoursesProps) {
     const [courses, setCourses] = React.useState<CourseInterface[]>([]);
     const [loading, setLoading] = React.useState<boolean>(true);
     const [isVisible, setIsVisible] = React.useState<boolean>(isVisibleParam);
@@ -38,7 +39,7 @@ function useCourses({ size, isVisibleParam = true, institutionParam, facultyPara
     const authHook = useAuth();
 
     const [params, setParams] = React.useState<ParamsProps>({
-        pageNumber: 0,
+        pageNumber: page ?? 0,
         search: searchParam || "",
         institution: institutionParam?.id ? institutionParam : null,
         faculty: facultyParam?.id ? facultyParam : null

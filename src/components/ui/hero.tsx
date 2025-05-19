@@ -31,7 +31,7 @@ const Hero = ({
 }: HeroProps) => {
 
     const institutionHook = useInstitution({ size: 3 });
-    const courseHook = useCourses({ size: 4 });
+    const courseHook = useCourses({ size: 4, page: Math.floor(Math.random() * 21) });
 
     return (
         <section
@@ -70,7 +70,7 @@ const Hero = ({
                                     <FadeItem key={index}>
                                         <Avatar
                                             key={index}
-                                            className={`relative flex h-12 w-12 flex-shrink-0 rounded-full border-2 dark:border-0 object-cover`}
+                                            className={`relative flex h-12 w-12 flex-shrink-0 rounded-full border border-gray-200 dark:border-0 object-cover`}
                                         >
                                             <AvatarImage src={institution.image ?? ''} />
                                             <AvatarFallback>
@@ -110,12 +110,14 @@ const Hero = ({
                                             <FadeItem
                                                 className="h-full w-full"
                                             >
-                                                <LazyImage 
-                                                    src={courseHook.courses[0].image ?? ""}
-                                                    width={1100}
-                                                    height={600}
-                                                    className="object-cover h-full w-full object-center"
-                                                />
+                                                <Link className="w-full h-full" to={`/educacion/${courseHook.courses[0].id}`}>
+                                                    <LazyImage 
+                                                        src={courseHook.courses[0].image ?? ""}
+                                                        width={1100}
+                                                        height={600}
+                                                        className="object-cover h-full w-full object-center"
+                                                    />
+                                                </Link>
                                             </FadeItem>
                                         )}
                                     </div>
@@ -123,14 +125,16 @@ const Hero = ({
                                         {courseHook.courses.length > 1 && (
                                             <div className="absolute left-[5%] top-1/2 w-[110%] max-w-[25rem] -translate-y-1/2 overflow-hidden rounded-md">
                                                 <FadeItem>
-                                                    <AspectRatio ratio={1.739130435 / 1}>
-                                                        <LazyImage 
-                                                            src={courseHook.courses[1].image ?? ""}
-                                                            width={1100}
-                                                            height={600}
-                                                            className="size-full object-cover object-center"
-                                                        />
-                                                    </AspectRatio>
+                                                    <Link to={`/educacion/${courseHook.courses[1].id}`}>
+                                                        <AspectRatio ratio={1.739130435 / 1}>
+                                                            <LazyImage 
+                                                                src={courseHook.courses[1].image ?? ""}
+                                                                width={1100}
+                                                                height={600}
+                                                                className="size-full object-cover object-center"
+                                                            />
+                                                        </AspectRatio>
+                                                    </Link>
                                                 </FadeItem>
                                             </div>
                                         )}
@@ -139,21 +143,23 @@ const Hero = ({
                                         {courseHook.courses.length > 2 && (
                                             <div className="absolute left-[9%] top-[9%] w-[200%] max-w-[37.5rem] overflow-hidden rounded-md">
                                                 <FadeItem>
-                                                    <AspectRatio ratio={1.6 / 1}>
-                                                        <LazyImage 
-                                                            src={courseHook.courses[2].image ?? ""}
-                                                            width={1100}
-                                                            height={600}
-                                                            className="size-full object-cover object-center"
-                                                        />
-                                                    </AspectRatio>
+                                                    <Link to={`/educacion/${courseHook.courses[2].id}`}>
+                                                        <AspectRatio ratio={1.6 / 1}>
+                                                            <LazyImage 
+                                                                src={courseHook.courses[2].image ?? ""}
+                                                                width={1100}
+                                                                height={600}
+                                                                className="size-full object-cover object-center"
+                                                            />
+                                                        </AspectRatio>
+                                                    </Link>
                                                 </FadeItem>
                                             </div>
                                         )}
                                     </div>
                                     <div className="relative overflow-hidden rounded-[5.2%] bg-gray-100 dark:bg-zinc-950">
                                         <FadeItem>
-                                            <div className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
+                                            <Link to={`/educacion/${courseHook.courses[3].id}`} className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
                                                 <AspectRatio ratio={0.52 / 1}>
                                                     <img
                                                         src="https://shadcnblocks.com/images/block/mockups/phone-1.png"
@@ -169,7 +175,7 @@ const Hero = ({
                                                         />
                                                     )}
                                                 </AspectRatio>
-                                            </div>
+                                            </Link>
                                         </FadeItem>
                                     </div>
                                 </div>
