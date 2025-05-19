@@ -159,7 +159,7 @@ const Hero = ({
                                     </div>
                                     <div className="relative overflow-hidden rounded-[5.2%] bg-gray-100 dark:bg-zinc-950">
                                         <FadeItem>
-                                            <Link to={`/educacion/${courseHook.courses[3].id}`} className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
+                                            <Link to={courseHook.courses.length > 3 ? `/educacion/${courseHook.courses[3].id}` : ''} className="relative left-[50%] top-[12%] w-[70%] max-w-[17.5rem] -translate-x-[50%]">
                                                 <AspectRatio ratio={0.52 / 1}>
                                                     <img
                                                         src="https://shadcnblocks.com/images/block/mockups/phone-1.png"
