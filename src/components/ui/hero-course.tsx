@@ -71,7 +71,7 @@ const HeroCourse = ({
         {
             "icon": CalendarClock,
             "name": "Duración",
-            "value": course.duration
+            "value": course.duration + " horas"
         },
         {
             "icon": BookMarked,
