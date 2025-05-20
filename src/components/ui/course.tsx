@@ -91,7 +91,7 @@ function Course({ className, course, optionsEnable, handleEdit, handleDelete }: 
 				<CardTitle className="text-xl line-clamp-3">{course.title}</CardTitle>
 			</CardHeader>
 			<CardContent className="flex-grow space-y-4 flex flex-col justify-between">
-				<div className="grid grid-cols-2 gap-2">
+				<div className="grid grid-cols-[auto_1fr] gap-2">
 					<div className="col-span-2 grid grid-cols-[auto_1fr] gap-2 max-w-full overflow-hidden">
 						<Landmark className="size-5 min-w-5 shrink-0" />
 						<p className="text-sm text-gray-600 dark:text-gray-300">{course.institution.name}</p>
