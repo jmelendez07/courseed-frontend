@@ -68,7 +68,7 @@ function useSelectedPlan() {
             signature,
             test: "1",
             responseUrl: `${import.meta.env.VITE_BASE_URL}/suscriptor`,
-            confirmationUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/subscriptions/confirm?secret=${API_KEY}`,
+            confirmationUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/subscriptions/confirm?secret=${API_KEY}`,
         };
 
         Object.entries(fields).forEach(([key, value]) => {
