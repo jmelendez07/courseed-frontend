@@ -92,20 +92,18 @@ function Course({ className, course, optionsEnable, handleEdit, handleDelete }: 
 			</CardHeader>
 			<CardContent className="flex-grow space-y-4 flex flex-col justify-between">
 				<div className="grid grid-cols-2 gap-2">
-					<div className="col-span-2 grid grid-cols-[auto_1fr] max-w-full overflow-hidden">
+					<div className="col-span-2 grid grid-cols-[auto_1fr] gap-2 max-w-full overflow-hidden">
 						<Landmark className="size-5 min-w-5 shrink-0" />
 						<p className="text-sm text-gray-600 dark:text-gray-300">{course.institution.name}</p>
 					</div>
-					<div className="grid grid-cols-1 gap-2">
-						<p className="text-sm flex items-start gap-2">
-							<CalendarClock className="size-5 min-w-5 shrink-0" />
-							<span className="text-gray-600 dark:text-gray-300 line-clamp-1 truncate">{course.duration} Horas</span>
-						</p>
-						<p className="text-sm flex items-start gap-2">
-							<GraduationCap className="size-5 min-w-5 shrink-0" />
-							<span className="text-gray-600 dark:text-gray-300 line-clamp-1">{course.modality}</span>
-						</p>
-					</div>
+					<p className="text-sm flex items-start gap-2">
+						<CalendarClock className="size-5 min-w-5 shrink-0" />
+						<span className="text-gray-600 dark:text-gray-300 line-clamp-1 truncate">{course.duration} horas</span>
+					</p>
+					<p className="text-sm flex items-start gap-2">
+						<GraduationCap className="size-5 min-w-5 shrink-0" />
+						<span className="text-gray-600 dark:text-gray-300 line-clamp-1">{course.modality}</span>
+					</p>
 				</div>
 				<div className="flex flex-wrap justify-between gap-x-2 gap-y-1">
 					<p className="text-lg font-bold">
