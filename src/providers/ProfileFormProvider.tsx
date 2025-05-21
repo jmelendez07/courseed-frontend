@@ -20,6 +20,7 @@ function ProfileFormProvider({ children }: ChildrenProps) {
     const navigate = useNavigate();
     
     React.useEffect(() => {
+        console.log(authHook?.user);
         if (authHook?.user && authHook.user.roles?.some(r => r === ROLES.USER) && (!authHook.user.profile || Object.values(authHook.user.profile).some(value => value === null))) {
             setRedirect(true);
             navigate("/formulario-perfil", { replace: true });

@@ -66,6 +66,7 @@ function DashboardRecomendedCourses() {
                 opts={{
                     align: "start"
                 }}
+                className="w-full"
             >
                 <CarouselContent>
                     {loading ? (
