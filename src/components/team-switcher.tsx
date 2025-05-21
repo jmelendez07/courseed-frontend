@@ -102,17 +102,17 @@ export function TeamSwitcher({
 							</>
 						)}
 						<DropdownMenuItem
-							className="gap-2 p-2 flex justify-between"
+							className="gap-2 flex justify-between"
 						>
-							<Link to="/perfil" className="flex gap-2">
+							<Link to="/perfil" className="flex p-2 gap-2 w-full">
 								<UserPen className="size-4 shrink-0" />
 								Perfil
 							</Link>
 						</DropdownMenuItem>
 						<DropdownMenuItem
-							className="gap-2 p-2 flex justify-between"
+							className="gap-2 flex justify-between"
 						>
-							<Link to="/salir" className="flex gap-2">
+							<Link to="/salir" className="flex p-2 gap-2 w-full">
 								<LogOut className="size-4 shrink-0" />
 								Cerrar Sesión
 							</Link>
