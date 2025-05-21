@@ -55,7 +55,7 @@ function DashboardRecomendedCourses() {
     }, []);
 
     return (
-        <div className="grid grid-cols-1 overflow-hidden gap-4">
+        <div className="grid grid-cols-1 w-full overflow-hidden gap-4">
             <h2 className="text-xl font-semibold">
                 Programas recomendados para ti, basados en tu interés por {" "}
                 <span className={`text-${colorContext?.color}-600`}>{ authHook?.user?.profile?.interest }</span>
