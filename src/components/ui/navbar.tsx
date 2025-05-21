@@ -406,7 +406,7 @@ const renderMenuItem = (item: MenuItem) => {
                     <NavigationMenuTrigger className="dark:bg-none">{item.title}</NavigationMenuTrigger>
                 </motion.div>
                 <NavigationMenuContent>
-                    <ul className="w-80 p-3">
+                    <ul className="w-80 max-h-80 p-3">
                         <NavigationMenuLink>
                             {item.items.map((subItem, _) => (
                                 <li key={subItem.id}>
