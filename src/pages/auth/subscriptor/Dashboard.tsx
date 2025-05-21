@@ -14,7 +14,7 @@ import HeadProvider from "@/providers/HeadProvider";
 import InstitutionToSuscriptorProvider from "@/providers/InstitutionToSuscriptorProvider";
 import axios, { AxiosResponse } from "axios";
 import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 function Dashboard() {
     const [searchParams] = useSearchParams();
