@@ -68,6 +68,7 @@ enum APIS {
     CREATE_PROFILE = '/profiles/create',
     UPDATE_USER_PROFILE = '/profiles/update',
     UPLOAD_AVATAR = '/auth/upload-avatar',
+    AUTH_TOKEN = '/auth/token',
 }
 
 export default APIS;
