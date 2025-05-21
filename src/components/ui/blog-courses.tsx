@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import useCourses from "@/hooks/useCourses";
 import Course from "./course";
 import { Button } from "./button";
-import { ChevronDown, ChevronUp, ClipboardCheck, LoaderCircle, Search, ThumbsUp } from "lucide-react";
+import { ChevronDown, ChevronUp, ClipboardCheck, LoaderCircle, Search } from "lucide-react";
 import { Input } from "./input";
 import useInstitution from "@/hooks/useInstitution";
 import useFaculty from "@/hooks/useFaculty";
