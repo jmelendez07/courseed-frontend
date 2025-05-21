@@ -24,7 +24,7 @@ function Dashboard() {
         if (searchParams.get('lapResponseCode') === "APPROVED") {
             axios.get(APIS.AUTH_TOKEN)
                 .then((response: AxiosResponse) => {
-                    console.log("ACEPTADO")
+                    console.log(response.data);
                     authHook?.handleToken(response.data.token);
                 })
         }
