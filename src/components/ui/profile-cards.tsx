@@ -102,7 +102,7 @@ function ProfileCards() {
                 }
                 toast({
                     title: `Tu perfil se ha actualizado!`,
-                    description: dayjs(response.data.updatedAt).format("LLL"),
+                    description: dayjs(response.data.updatedAt).subtract(5, 'hour').format("LLL"),
                 });
                 setProfileErrors({
                     auth: null,
