@@ -62,7 +62,7 @@ export default function Prediction() {
 
     const fetchSection1 = React.useCallback(() => {
         setSection1Loading(true);
-        axios.get('api/predictions/user-course-recomended', {
+        axios.get('predictions/user-course-recomended', {
             params: {
                 userId: section1Form.user,
                 courseId: section1Form.course,
@@ -91,7 +91,7 @@ export default function Prediction() {
     const [section2Result, setSection2Result] = useState<recomendedCoursesInterface[]>([]);
     const fetchSection2 = React.useCallback(() => {
         setSection2Loading(true);
-        axios.get('api/predictions/courses-recomended-for-user', {
+        axios.get('predictions/courses-recomended-for-user', {
             params: {
                 userId: section2Form.user,
             }
@@ -136,7 +136,7 @@ export default function Prediction() {
 
     const fetchSection3 = (data: any) => {
         setSection3Loading(true);
-        axios.post('api/predictions/form-prediction', data)
+        axios.post('predictions/form-prediction', data)
             .then(response => {
                 console.log(response);
                 setSection3Result({

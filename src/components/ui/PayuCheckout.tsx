@@ -41,7 +41,7 @@ const PayUCheckout: React.FC = () => {
 				<input type="hidden" name="signature" value={signature} />
 				<input type="hidden" name="test" value="1" />
 				<input type="hidden" name="responseUrl" value={`${import.meta.env.VITE_BASE_URL}/payment-response`}  />
-				<input type="hidden" name="confirmationUrl" value={`${import.meta.env.VITE_BACKEND_BASE_URL}/api/payu/confirm`} />
+				<input type="hidden" name="confirmationUrl" value={`${import.meta.env.VITE_BACKEND_BASE_URL}/payu/confirm`} />
 
 				{/* Botón para iniciar el pago */}
 				<button

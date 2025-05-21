@@ -1,12 +1,11 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import InstitutionsWithCoursesCount from "@/interfaces/institutions-with-courses-count";
 import axios, { AxiosResponse } from "axios";
 import APIS from "@/enums/apis";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import MapView, { capitals } from "@/components/ui/map-view";
 
 function DashboardMap() {
     const mapRef = React.useRef<HTMLDivElement | null>(null);
@@ -48,26 +47,7 @@ function DashboardMap() {
                 <Card ref={mapRef} className="xl:col-span-3 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-0">
                         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                            <div className="absolute inset-0">
-                                <MapView />
-                            </div>
-                            <div className="hidden md:block absolute bottom-4 left-4 right-4">
-                                <div className="grid grid-cols-8 gap-2">
-                                    {capitals.map((capital, index) => (
-                                        <Card key={index} className="bg-background/80 backdrop-blur-sm">
-                                            <CardHeader className="p-3">
-                                                <div className="flex items-center gap-2">
-                                                    <div className={`h-3 w-3 rounded-full`} style={{ backgroundColor: capital.color }} />
-                                                    <CardTitle className="text-sm">{capital.dept}</CardTitle>
-                                                </div>
-                                            </CardHeader>
-                                            <CardContent className="p-3 pt-0">
-                                                <p className="text-lg font-bold">{capital.name}</p>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
+                            <iframe title="PowerbiCourseed" width="100%" height="100%" src="https://app.powerbi.com/view?r=eyJrIjoiNDgyOTU3OTctOTBlOC00ZTZmLWIzNWUtNWU1ZmIzMjM5M2VkIiwidCI6IjlkMTJiZjNmLWU0ZjYtNDdhYi05MTJmLTFhMmYwZmM0OGFhNCIsImMiOjR9" allowFullScreen={true}></iframe>
                         </div>
                     </CardContent>
                 </Card>
@@ -77,7 +57,7 @@ function DashboardMap() {
                 >
                     <div className="pb-4">
                         <h3 className="text-xl font-semibold">Programas por Institución</h3>
-                        <p className="text-base">Total de Programas activos</p>
+                        <p className="text-base">Total de Programas activos {institutions.length}</p>
                     </div>
                     <div className="flex-1 overflow-auto">
                         <ScrollArea className="h-full">

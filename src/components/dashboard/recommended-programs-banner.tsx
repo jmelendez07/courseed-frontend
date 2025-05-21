@@ -8,10 +8,31 @@ import axios from "axios";
 import APIS from "@/enums/apis";
 
 export function RecommendedProgramsBanner() {
+    const ref = React.useRef<HTMLDivElement>(null);
     const colorContext = React.useContext(ColorContext);
+    const [isVisible, setIsVisible] = React.useState<boolean>(false);
     const [programCount, setProgramCount] = React.useState<number>(0);
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => observer.disconnect();
+    }, [ref.current]);
      
     React.useEffect(() => {
+        if (!isVisible) return;
+
         axios.get(APIS.USER_COURSES_RECOMENDED_COUNT)
             .then((response) => {
                 if (typeof response.data.totalCourses === "number") {
@@ -21,10 +42,10 @@ export function RecommendedProgramsBanner() {
             .catch((error) => {
                 console.error("Error fetching recommended programs count:", error);
             });
-    }, []);
+    }, [isVisible]);
 
     return (
-        <div className="relative overflow-hidden rounded-lg">
+        <div ref={ref} className="relative overflow-hidden rounded-lg">
             <div className={`absolute inset-0 bg-gradient-to-r from-${colorContext?.color}-700 to-${colorContext?.getReverseColor()}-500`}>
                 <div className="absolute right-0 top-0 h-full w-1/2 overflow-hidden">
                     {Array.from({ length: 8 }).map((_, i) => (
