@@ -58,7 +58,7 @@ const BlogReviews = forwardRef<HTMLElement, BlogReviewsProps>(({
                     </FadeItem>
                 </div>
                 {(course.reviews.length > 0 || authHook?.user) && (
-                    <div className="w-full grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap bg-red-200 justify-center">
+                    <div className="w-full grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap justify-center">
                         {(authHook?.user && !course.reviews.some(r => r.user.id === authHook.user?.id)) && (
                             <CreateReviewCard 
                                 user={authHook.user} 
