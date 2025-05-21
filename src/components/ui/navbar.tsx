@@ -107,7 +107,7 @@ const Navbar = ({
 }: NavbarProps) => {
 
     const institutionHook = useInstitution({ size: 20 });
-    const facultyHook = useFaculty({ size: 7 });
+    const facultyHook = useFaculty({ size: 30 });
     const authHook = useAuth();
     const themeContext = React.useContext(ThemeContext);
     const { scrollY } = useScroll();
@@ -122,7 +122,7 @@ const Navbar = ({
             items: institutionHook.institutions
         },
         {
-            title: "Facultades",
+            title: "Categorias",
             url: "/",
             paramKey: "facultad",
             items: facultyHook.faculties
