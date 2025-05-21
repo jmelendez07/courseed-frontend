@@ -361,7 +361,7 @@ function DashboardContentUserWithProfile() {
                                                     </div>
                                                     <div>
                                                         <p className="text-sm font-medium">Última Actualización</p>
-                                                        <p className="text-sm text-muted-foreground">{dayjs(authHook?.user?.profile?.createdAt).format("MMMM D, YYYY h:mm A")}</p>
+                                                        <p className="text-sm text-muted-foreground">{dayjs(authHook?.user?.profile?.updatedAt).format("LLL")}</p>
                                                     </div>
                                                 </div>
                                             </div>
