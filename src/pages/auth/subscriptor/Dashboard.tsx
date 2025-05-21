@@ -3,6 +3,7 @@ import DashboardSuscriptorCourseRecomendation from "@/components/dashboard/dashb
 import DashboardSuscriptorStats from "@/components/dashboard/dashboard-suscriptor-stats";
 import WelcomeBanner from "@/components/dashboard/welcome-banner";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Card, CardContent } from "@/components/ui/card";
 import Color from "@/components/ui/Color";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -44,6 +45,13 @@ function Dashboard() {
                         <div className="mb-8 space-y-6">
                             <WelcomeBanner />
                             <DashboardSuscriptorStats />
+                            <Card className="hover:shadow-lg transition-shadow duration-300">
+                                <CardContent className="p-0">
+                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                                        <iframe title="PowerbiCourseed" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=b39dcde8-4b8c-4d3b-b687-879eeaabc3aa&autoAuth=true&ctid=9d12bf3f-e4f6-47ab-912f-1a2f0fc48aa4" allowFullScreen={true}></iframe>
+                                    </div>
+                                </CardContent>
+                            </Card>
                             <DashboardSuscriptorCourseRecomendation title="Programas Recomendados" />
                         </div>
                     </main>
