@@ -118,7 +118,7 @@ const BlogCourses = ({
                                     }}
                                     className="pr-10 w-full"
                                 />
-                                <Button size="icon" variant="ghost" className="absolute right-0 top-0 h-full cursor-default hover:bg-transparent dark:hover:bg-transparent">
+                                <Button type="submit" size="icon" variant="ghost" className="absolute right-0 top-0 h-full cursor-pointer hover:bg-gray-100 rounded-md">
                                     <Search className="h-4 w-4" />
                                     <span className="sr-only">Buscar</span>
                                 </Button>
@@ -178,10 +178,10 @@ const BlogCourses = ({
                             </FadeItem>
                         </div>
                     </div>
-                    <div className="mt-6 border-t border-gray-200 pt-4 text-lg inline-flex items-center gap-2">
+                    {/* <div className="mt-6 border-t border-gray-200 pt-4 text-lg inline-flex items-center gap-2">
                         Hemos encontrado <b>597</b> programas recomendados para ti
                         <ThumbsUp className="text-sky-600" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="w-full" ref={ref}>
                     {(
@@ -194,7 +194,7 @@ const BlogCourses = ({
                             courseHook.params.pageNumber === 0
                         )
                     ) ? (
-                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap 2xl:justify-between">
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap justify-center">
                             {Array.from({ length: 12 }).map((_, index) => (
                                 <CourseSkeleton
                                     key={index}
@@ -211,7 +211,7 @@ const BlogCourses = ({
                                     <p>No encontramos ningún programa para esta busqueda.</p>
                                 </div>
                             ) : (
-                                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap 2xl:justify-between">
+                                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:flex 2xl:flex-wrap justify-center">
                                     {courseHook.courses.map((course) => (
                                         <FadeItem key={course.id} className="md:w-full md:max-w-[400px]">
                                             <Course
