@@ -106,7 +106,7 @@ const Navbar = ({
     },
 }: NavbarProps) => {
 
-    const institutionHook = useInstitution({ size: 7 });
+    const institutionHook = useInstitution({ size: 20 });
     const facultyHook = useFaculty({ size: 7 });
     const authHook = useAuth();
     const themeContext = React.useContext(ThemeContext);
