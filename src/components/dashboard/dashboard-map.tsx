@@ -47,8 +47,7 @@ function DashboardMap() {
                 <Card ref={mapRef} className="xl:col-span-3 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-0">
                         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                        {/* width="1140" height="541.25" */}
-                            <iframe title="PowerbiCourseed" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=b39dcde8-4b8c-4d3b-b687-879eeaabc3aa&autoAuth=true&ctid=9d12bf3f-e4f6-47ab-912f-1a2f0fc48aa4" allowFullScreen={true}></iframe>
+                            <iframe title="PowerbiCourseed" width="100%" height="100%" src="https://app.powerbi.com/view?r=eyJrIjoiNDgyOTU3OTctOTBlOC00ZTZmLWIzNWUtNWU1ZmIzMjM5M2VkIiwidCI6IjlkMTJiZjNmLWU0ZjYtNDdhYi05MTJmLTFhMmYwZmM0OGFhNCIsImMiOjR9" allowFullScreen={true}></iframe>
                         </div>
                     </CardContent>
                 </Card>
