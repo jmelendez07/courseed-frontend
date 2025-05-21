@@ -21,14 +21,11 @@ function Dashboard() {
     const authHook = useAuth();
 
     React.useEffect(() => {
-        console.log("searchParams", searchParams.get('lapResponseCode'));
         if (searchParams.get('lapResponseCode') === "APPROVED") {
-            console.log("APROVADO")
             axios.get(APIS.AUTH_TOKEN)
                 .then((response: AxiosResponse) => {
-                    if (response.data && typeof response.data === "object") {
-                        authHook?.handleToken(response.data.token);
-                    }
+                    console.log("ACEPTADO")
+                    authHook?.handleToken(response.data.token);
                 })
         }
     }, [searchParams.get('lapResponseCode')]);
