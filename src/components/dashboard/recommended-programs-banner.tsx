@@ -42,7 +42,7 @@ export function RecommendedProgramsBanner() {
             .catch((error) => {
                 console.error("Error fetching recommended programs count:", error);
             });
-    }, []);
+    }, [isVisible]);
 
     return (
         <div ref={ref} className="relative overflow-hidden rounded-lg">
