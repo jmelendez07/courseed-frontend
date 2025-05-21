@@ -105,23 +105,17 @@ export function TeamSwitcher({
 							className="gap-2 p-2 flex justify-between"
 						>
 							<Link to="/perfil" className="flex gap-2">
-								<div className="flex size-6 items-center justify-center rounded-sm border">
-									<UserPen className="size-4 shrink-0" />
-								</div>
+								<UserPen className="size-4 shrink-0" />
 								Perfil
 							</Link>
-							<ChevronRight />
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							className="gap-2 p-2 flex justify-between"
 						>
 							<Link to="/salir" className="flex gap-2">
-								<div className="flex size-6 items-center justify-center rounded-sm border">
-									<LogOut className="size-4 shrink-0" />
-								</div>
+								<LogOut className="size-4 shrink-0" />
 								Cerrar Sesión
 							</Link>
-							<ChevronRight />
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
