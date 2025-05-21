@@ -64,7 +64,7 @@ function Dashboard() {
                                 <TabsTrigger value="recomendados">Recomendados</TabsTrigger>
                                 <TabsTrigger value="historial">Historial</TabsTrigger>
                             </TabsList>
-                            <TabsContent value="recomendados" className="space-y-8 h-full">
+                            <TabsContent value="recomendados" className="space-y-8 h-full w-full">
                                 <DashboardRecomendedCourses />
                                 {(authHook?.user?.views !== undefined && authHook.user.views > 0)  && (
                                     <DashboardHistoryRecomendations />
