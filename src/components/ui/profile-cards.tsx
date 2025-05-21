@@ -135,7 +135,7 @@ function ProfileCards() {
                 authHook?.handleToken(response.data.token);
                 toast({
                     title: `Tu contraseña se ha actualizado!`,
-                    description: dayjs(response.data.updatedAt).format("LLL"),
+                    description: dayjs(response.data.updatedAt).format("MMMM D, YYYY h:mm A"),
                 });
                 setFormPassErrors({
                     auth: null,
