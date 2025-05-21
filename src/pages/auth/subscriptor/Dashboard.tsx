@@ -14,15 +14,14 @@ import HeadProvider from "@/providers/HeadProvider";
 import InstitutionToSuscriptorProvider from "@/providers/InstitutionToSuscriptorProvider";
 import axios, { AxiosResponse } from "axios";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 function Dashboard() {
-    const params = useParams();
+    const [searchParams] = useSearchParams();
     const authHook = useAuth();
 
     React.useEffect(() => {
-        console.log("params", params);
-        if (params.lapResponseCode === "APPROVED") {
+        if (searchParams.get('lapResponseCode') === "APPROVED") {
             axios.get(APIS.AUTH_TOKEN)
                 .then((response: AxiosResponse) => {
                     if (response.data && typeof response.data === "object") {
@@ -30,7 +29,7 @@ function Dashboard() {
                     }
                 })
         }
-    }, [params.lapResponseCode]);
+    }, [searchParams.get('lapResponseCode')]);
 
     return (
         <InstitutionToSuscriptorProvider>
