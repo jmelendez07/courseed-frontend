@@ -102,7 +102,7 @@ function ProfileCards() {
                 }
                 toast({
                     title: `Tu perfil se ha actualizado!`,
-                    description: dayjs(response.data.createdAt).format("LLL"),
+                    description: dayjs(response.data.updatedAt).format("LLL"),
                 });
                 setProfileErrors({
                     auth: null,
@@ -135,7 +135,7 @@ function ProfileCards() {
                 authHook?.handleToken(response.data.token);
                 toast({
                     title: `Tu contraseña se ha actualizado!`,
-                    description: dayjs(response.data.createdAt).format("LLL"),
+                    description: dayjs(response.data.updatedAt).format("LLL"),
                 });
                 setFormPassErrors({
                     auth: null,
