@@ -21,6 +21,7 @@ function Dashboard() {
     const authHook = useAuth();
 
     React.useEffect(() => {
+        console.log("params", params);
         if (params.lapResponseCode === "APPROVED") {
             axios.get(APIS.AUTH_TOKEN)
                 .then((response: AxiosResponse) => {
