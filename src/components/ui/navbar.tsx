@@ -406,25 +406,27 @@ const renderMenuItem = (item: MenuItem) => {
                     <NavigationMenuTrigger className="dark:bg-none">{item.title}</NavigationMenuTrigger>
                 </motion.div>
                 <NavigationMenuContent>
-                    <ul className="w-80 max-h-80 p-3">
-                        <NavigationMenuLink>
-                            {item.items.map((subItem, _) => (
-                                <li key={subItem.id}>
-                                    <Link
-                                        className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-accent-foreground group"
-                                        to={`/educacion?${item.paramKey}=${subItem.id}`}
-                                    >
-                                        <ArrowUpRight className="w-5 min-w-5 transition-transform group-hover:translate-x-1" />
-                                        <div>
-                                            <p className="text-sm leading-snug text-muted-foreground">
-                                                {subItem.name}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                </li>
-                            ))}
-                        </NavigationMenuLink>
-                    </ul>
+                    <div className="max-h-80 scroll-auto">
+                        <ul className="w-80 h-full p-3">
+                            <NavigationMenuLink>
+                                {item.items.map((subItem, _) => (
+                                    <li key={subItem.id}>
+                                        <Link
+                                            className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-accent-foreground group"
+                                            to={`/educacion?${item.paramKey}=${subItem.id}`}
+                                        >
+                                            <ArrowUpRight className="w-5 min-w-5 transition-transform group-hover:translate-x-1" />
+                                            <div>
+                                                <p className="text-sm leading-snug text-muted-foreground">
+                                                    {subItem.name}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </NavigationMenuLink>
+                        </ul>
+                    </div>
                 </NavigationMenuContent>
             </NavigationMenuItem>
         );
