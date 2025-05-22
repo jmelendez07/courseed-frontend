@@ -8,10 +8,27 @@ import Color from "@/components/ui/Color";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import Theme from "@/components/ui/theme";
+import APIS from "@/enums/apis";
+import { useAuth } from "@/providers/AuthProvider";
 import HeadProvider from "@/providers/HeadProvider";
 import InstitutionToSuscriptorProvider from "@/providers/InstitutionToSuscriptorProvider";
+import axios, { AxiosResponse } from "axios";
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 
 function Dashboard() {
+    const [searchParams] = useSearchParams();
+    const authHook = useAuth();
+
+    React.useEffect(() => {
+        if (searchParams.get('lapResponseCode') === "APPROVED") {
+            axios.get(APIS.AUTH_TOKEN)
+                .then((response: AxiosResponse) => {
+                    authHook?.handleToken(response.data.token);
+                })
+        }
+    }, [searchParams.get('lapResponseCode')]);
+
     return (
         <InstitutionToSuscriptorProvider>
             <SidebarProvider>

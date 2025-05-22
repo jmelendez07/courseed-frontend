@@ -69,7 +69,7 @@ function CreateInstitutionForm({ open, setOpen, setExploding }: CreateInstitutio
     return (
         open && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                <div className="bg-white rounded-lg w-full max-w-md p-6 shadow-lg">
+                <div className="bg-white dark:border-zinc-800 dark:bg-zinc-950 rounded-lg w-full max-w-md p-6 shadow-lg">
                     <div className="flex justify-between items-center">
                         <h2 className="text-2xl font-bold">Información de la institución</h2>
                     </div>

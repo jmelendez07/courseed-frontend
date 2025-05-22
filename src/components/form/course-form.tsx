@@ -77,7 +77,7 @@ function CourseForm({ course, onCreated, onUpdated }: CourseFormProps) {
     const [loading, setLoading] = React.useState<boolean>(false);
     const [loadingInstitution, setLoadingInstitution] = React.useState<boolean>(true);
     const dialogContext = React.useContext(DialogContext);
-    const institutionHook = useInstitution({ size: 8 });
+    const institutionHook = useInstitution({ size: 20 });
     const facultyHook = useFaculty({ size: 20 });
     const { toast } = useToast();
 
@@ -283,14 +283,28 @@ function CourseForm({ course, onCreated, onUpdated }: CourseFormProps) {
             {/* Institución */}
             <div className="space-y-2">
                 <Label htmlFor="institution">Institución</Label>
-                { loadingInstitution ? (
-                    <LoaderCircle className="animate-spin size-4 text-gray-600" />
-                ) : authHook?.user?.roles?.some((r: string) => r === ROLES.SUBSCRIBER) && (
-                    <div className="grid grid-cols-[auto_1fr] gap-2">
-                        <LazyImage src={form.institution?.image ?? ''} className="shrink-0 size-9 bg-gray-100 rounded-md" />
-                        <Input id="institution" placeholder={form.institution?.name} disabled />
-                    </div>
+                {authHook?.user?.roles?.some((r: string) => r === ROLES.SUBSCRIBER) ? (
+                    loadingInstitution ? (
+                        <LoaderCircle className="animate-spin size-4 text-gray-600" />
+                    ) : (
+                        <div className="grid grid-cols-[auto_1fr] gap-2">
+                            <LazyImage src={form.institution?.image ?? ''} className="shrink-0 size-9 bg-gray-100 rounded-md" />
+                            <Input id="institution" placeholder={form.institution?.name} disabled />
+                        </div>
+                    )
+                ) : (
+                    <Select defaultValue={form.institution?.id ?? ''} onValueChange={(value) => setForm({ ...form, institution: institutionHook.institutions.find(i => i.id === value) ?? null })}>
+                        <SelectTrigger id="institution">
+                            <SelectValue placeholder="Seleccione una institución" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {institutionHook.institutions.map((institution) => (
+                                <SelectItem key={institution.id} value={institution.id ?? ''}>{institution.name}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
                 )}
+
                 {errors.institutionId && (
                     <p className="text-xs text-red-500 flex items-start gap-1">
                         <Info className="size-4" />

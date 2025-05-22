@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronRight, ChevronsUpDown, House } from "lucide-react";
+import { ChevronRight, ChevronsUpDown, House, LogOut, UserPen } from "lucide-react";
 
 import {
 	DropdownMenu,
@@ -101,6 +101,22 @@ export function TeamSwitcher({
 								))}	
 							</>
 						)}
+						<DropdownMenuItem
+							className="gap-2 flex justify-between"
+						>
+							<Link to="/perfil" className="flex p-2 gap-2 w-full">
+								<UserPen className="size-4 shrink-0" />
+								Perfil
+							</Link>
+						</DropdownMenuItem>
+						<DropdownMenuItem
+							className="gap-2 flex justify-between"
+						>
+							<Link to="/salir" className="flex p-2 gap-2 w-full">
+								<LogOut className="size-4 shrink-0" />
+								Cerrar Sesión
+							</Link>
+						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			</SidebarMenuItem>

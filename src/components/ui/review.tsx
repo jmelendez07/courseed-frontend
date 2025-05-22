@@ -17,6 +17,8 @@ interface ReviewProps {
 
 function Review({ review, optionsEnabled = false, handleEdit, handleDelete, className }: ReviewProps) {
 
+    const [optionsOpen, setOptionsOpen] = React.useState<boolean>(false);
+
     const getName = React.useCallback(() => {
         const name = review.user.email.split('@')[0];
         if (name) {
@@ -40,7 +42,7 @@ function Review({ review, optionsEnabled = false, handleEdit, handleDelete, clas
                     </div>
                 </div>
                 {optionsEnabled && (
-					<DropdownMenu>
+					<DropdownMenu open={optionsOpen} onOpenChange={setOptionsOpen}>
 						<DropdownMenuTrigger asChild>
 							<Button variant="ghost" className="h-8 w-8 p-0 min-w-8">
 								<MoreVertical className="h-4 w-4" />
@@ -48,13 +50,19 @@ function Review({ review, optionsEnabled = false, handleEdit, handleDelete, clas
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align="end">
 							<DropdownMenuItem onClick={() => {
-								if (handleEdit) handleEdit(review);
+								if (handleEdit) {
+                                    handleEdit(review);
+                                    setOptionsOpen(false);
+                                }
 							}}>
 								<Edit className="mr-2 h-4 w-4" />
 								<span>Editar</span>
 							</DropdownMenuItem>
 							<DropdownMenuItem onClick={() => {
-								if (handleDelete) handleDelete(review);
+								if (handleDelete) {
+                                    handleDelete(review);
+                                    setOptionsOpen(false);
+                                }
 							}}>
 								<Trash2 className="mr-2 h-4 w-4" />
 								<span>Eliminar</span>
